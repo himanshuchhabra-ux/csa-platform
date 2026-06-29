@@ -79,24 +79,7 @@
                         <a href="#" class="forgot-link">Forgot password?</a>
                     </div>
 
-                    <!-- Role Selection Buttons -->
-                    <div class="role-selection">
-                        <p class="role-label">Select your role:</p>
-                        <div class="role-buttons">
-                            <button type="button" class="role-btn" data-role="assessor"
-                                onclick="selectRole('assessor')">
-                                <i class="fas fa-user-edit"></i>
-                                <span>Assessor</span>
-                            </button>
-                            <button type="button" class="role-btn" data-role="certifier"
-                                onclick="selectRole('certifier')">
-                                <i class="fas fa-user-check"></i>
-                                <span>Certifier</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="btn-submit" id="submitBtn" disabled>
+                    <button type="submit" class="btn-submit" id="submitBtn">
                         <span>Sign In</span>
                         <i class="fas fa-arrow-right"></i>
                     </button>
@@ -111,22 +94,6 @@
     </div>
 
     <script>
-        let selectedRole = null;
-
-        // Select role function
-        function selectRole(role) {
-            selectedRole = role;
-
-            // Update button states
-            document.querySelectorAll('.role-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-
-            document.querySelector(`[data-role="${role}"]`).classList.add('active');
-
-            // Enable submit button
-            document.getElementById('submitBtn').disabled = false;
-        }
 
         // Toggle password visibility
         function togglePassword() {
@@ -148,18 +115,12 @@
         document.getElementById('loginForm').addEventListener('submit', function (e) {
             e.preventDefault();
 
-            if (!selectedRole) {
-                alert('Please select a role (Assessor or Certifier)');
-                return;
-            }
-
             const employeeId = document.getElementById('employeeId').value;
             const password = document.getElementById('password').value;
 
             // Store user info and redirect
             sessionStorage.setItem('userEmployeeId', employeeId);
-            sessionStorage.setItem('userRole', selectedRole);
-            window.location.href = 'dashboard.html?role=' + selectedRole;
+            window.location.href = 'dashboard.html';
         });
 
         // Add entrance animation
