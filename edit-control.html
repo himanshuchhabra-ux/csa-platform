@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSA Platform - Edit Control</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="dashboardPage" class="page active">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <i class="fas fa-shield-alt"></i>
+                <span>CSA Platform</span>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="dashboard.html" class="nav-item active">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>Controls</span>
+                </a>
+                <a href="dashboard.html" class="nav-item">
+                    <i class="fas fa-tasks"></i>
+                    <span>Assessments</span>
+                </a>
+
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-details">
+                        <div class="user-name" id="userName">John Doe</div>
+                        <div class="user-role" id="userRole">Assessor</div>
+                    </div>
+                </div>
+                <button class="btn-logout" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="top-header">
+                <div class="header-left">
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <a href="dashboard.html" class="btn btn-secondary btn-sm"><i class="fas fa-arrow-left"></i> Back</a>
+                        <h1 id="pageTitle">Edit Control</h1>
+                    </div>
+                    <p id="pageSubtitle">Update control details and resubmit</p>
+                </div>
+                <div class="header-right">
+                    <div class="notification-icon">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="view active">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Edit Control: Access Control Review</h3>
+                    </div>
+                    <div class="card-body">
+                        
+                        <!-- Show rejection reason so the user knows what to fix -->
+                        <div style="margin-bottom: 25px; background: #fdf3f2; border-left: 4px solid #e74c3c; padding: 15px; border-radius: 4px;">
+                            <p style="color: #c0392b; font-weight: 500; margin-bottom: 5px;"><i class="fas fa-exclamation-circle"></i> Reason for Rejection</p>
+                            <p style="color: #7f8c8d; font-size: 14px;">The description does not adequately explain the systems involved in the access control review.</p>
+                        </div>
+
+                        <form id="editControlForm" onsubmit="event.preventDefault(); window.location.href='dashboard.html';">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                                <div class="form-group" style="margin-bottom: 20px;">
+                                    <label for="controlName" style="display: block; margin-bottom: 8px; font-weight: 500;">Control Name <span style="color: #e74c3c;">*</span></label>
+                                    <input type="text" id="controlName" required value="Access Control Review" style="width: 100%; padding: 12px; border: 1px solid var(--etihad-light-grey); border-radius: 4px; font-family: inherit;">
+                                </div>
+                                
+                                <div class="form-group" style="margin-bottom: 20px;">
+                                    <label for="controlOwner" style="display: block; margin-bottom: 8px; font-weight: 500;">Control Owner <span style="color: #e74c3c;">*</span></label>
+                                    <select id="controlOwner" required style="width: 100%; padding: 12px; border: 1px solid var(--etihad-light-grey); border-radius: 4px; font-family: inherit; background: white;">
+                                        <option value="Sarah Johnson">Sarah Johnson</option>
+                                        <option value="Michael Chen">Michael Chen</option>
+                                        <option value="David Miller" selected>David Miller</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label for="controlDescription" style="display: block; margin-bottom: 8px; font-weight: 500;">Control Description <span style="color: #e74c3c;">*</span></label>
+                                <textarea id="controlDescription" rows="4" required style="width: 100%; padding: 12px; border: 1px solid var(--etihad-light-grey); border-radius: 4px; font-family: inherit;">Review of system access controls. Ensuring that only authorized personnel have access to the system and data.</textarea>
+                            </div>
+                            
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                                <div class="form-group" style="margin-bottom: 20px;">
+                                    <label for="controlFrequency" style="display: block; margin-bottom: 8px; font-weight: 500;">Control Frequency <span style="color: #e74c3c;">*</span></label>
+                                    <select id="controlFrequency" required style="width: 100%; padding: 12px; border: 1px solid var(--etihad-light-grey); border-radius: 4px; font-family: inherit; background: white;">
+                                        <option value="daily">Daily</option>
+                                        <option value="monthly">Monthly</option>
+                                        <option value="quarterly" selected>Quarterly</option>
+                                        <option value="semi-annual">Semi-Annual</option>
+                                        <option value="annual">Annual</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group" style="margin-bottom: 20px;">
+                                    <label for="controlRisk" style="display: block; margin-bottom: 8px; font-weight: 500;">Control Risk <span style="color: #e74c3c;">*</span></label>
+                                    <select id="controlRisk" required style="width: 100%; padding: 12px; border: 1px solid var(--etihad-light-grey); border-radius: 4px; font-family: inherit; background: white;">
+                                        <option value="high" selected>High</option>
+                                        <option value="medium">Medium</option>
+                                        <option value="low">Low</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div style="margin-top: 30px; display: flex; gap: 15px; border-top: 1px solid var(--etihad-light-grey); padding-top: 25px;">
+                                <button type="button" class="btn btn-secondary" onclick="window.location.href='dashboard.html'">Cancel</button>
+                                <button type="submit" class="btn btn-primary">Save and Resubmit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function logout() {
+            sessionStorage.clear();
+            window.location.href = 'login.html';
+        }
+
+        window.addEventListener('load', function() {
+            const userName = sessionStorage.getItem('userEmployeeId') || 'John Doe';
+            document.getElementById('userName').textContent = userName;
+        });
+    </script>
+</body>
+</html>

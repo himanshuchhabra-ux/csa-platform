@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
     <div id="dashboardPage" class="page active">
         <!-- Sidebar -->
@@ -15,7 +17,7 @@
                 <i class="fas fa-shield-alt"></i>
                 <span>CSA Platform</span>
             </div>
-            
+
             <nav class="sidebar-nav">
                 <a href="#" class="nav-item active" data-view="dashboard">
                     <i class="fas fa-home"></i>
@@ -29,12 +31,9 @@
                     <i class="fas fa-tasks"></i>
                     <span>Assessments</span>
                 </a>
-                <a href="#" class="nav-item" data-view="reports">
-                    <i class="fas fa-chart-bar"></i>
-                    <span>Reports</span>
-                </a>
+
             </nav>
-            
+
             <div class="sidebar-footer">
                 <div class="user-info">
                     <div class="user-avatar">
@@ -80,7 +79,7 @@
                             <p>Total Controls</p>
                         </div>
                     </div>
-                    
+
                     <div class="stat-card">
                         <div class="stat-icon green">
                             <i class="fas fa-check-circle"></i>
@@ -90,7 +89,7 @@
                             <p>Active Controls</p>
                         </div>
                     </div>
-                    
+
                     <div class="stat-card">
                         <div class="stat-icon orange">
                             <i class="fas fa-clock"></i>
@@ -121,7 +120,7 @@
                                         <p class="activity-time">2 hours ago</p>
                                     </div>
                                 </div>
-                                
+
                                 <div class="activity-item">
                                     <div class="activity-icon green">
                                         <i class="fas fa-check"></i>
@@ -132,7 +131,7 @@
                                         <p class="activity-time">5 hours ago</p>
                                     </div>
                                 </div>
-                                
+
                                 <div class="activity-item">
                                     <div class="activity-icon orange">
                                         <i class="fas fa-exclamation"></i>
@@ -231,6 +230,7 @@
                                         <th>Risk</th>
                                         <th>Status</th>
                                         <th>Approval Status</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -242,6 +242,12 @@
                                         <td><span class="badge badge-high">High</span></td>
                                         <td><span class="badge badge-active">Active</span></td>
                                         <td><span class="badge badge-success">Approved</span></td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <a href="view-control.html" class="btn-action-icon" title="View"><i
+                                                        class="fas fa-eye"></i></a>
+                                            </div>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td><strong>Vendor Payment Approval</strong></td>
@@ -251,6 +257,12 @@
                                         <td><span class="badge badge-medium">Medium</span></td>
                                         <td><span class="badge badge-active">Active</span></td>
                                         <td><span class="badge badge-pending">Pending</span></td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <a href="view-control.html" class="btn-action-icon" title="View"><i
+                                                        class="fas fa-eye"></i></a>
+                                            </div>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td><strong>Access Control Review</strong></td>
@@ -259,7 +271,16 @@
                                         <td>Quarterly</td>
                                         <td><span class="badge badge-high">High</span></td>
                                         <td><span class="badge badge-inactive">Inactive</span></td>
-                                        <td><span class="badge badge-success">Approved</span></td>
+                                        <td><span class="badge badge-rejected"
+                                                style="background: #e74c3c; color: white;">Rejected</span></td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <a href="view-control.html" class="btn-action-icon" title="View"><i
+                                                        class="fas fa-eye"></i></a>
+                                                <a href="edit-control.html" class="btn-action-icon" title="Edit"><i
+                                                        class="fas fa-edit"></i></a>
+                                            </div>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -321,52 +342,7 @@
                 </div>
             </div>
 
-            <!-- Reports View -->
-            <div id="reportsView" class="view">
-                <div class="reports-grid">
-                    <div class="report-card">
-                        <i class="fas fa-chart-line"></i>
-                        <h3>Compliance Report</h3>
-                        <p>Overall compliance metrics by department</p>
-                        <button class="btn btn-primary btn-sm">Generate</button>
-                    </div>
-                    
-                    <div class="report-card">
-                        <i class="fas fa-chart-pie"></i>
-                        <h3>Control Effectiveness</h3>
-                        <p>Analysis of control effectiveness ratings</p>
-                        <button class="btn btn-primary btn-sm">Generate</button>
-                    </div>
-                    
-                    <div class="report-card">
-                        <i class="fas fa-clock"></i>
-                        <h3>Overdue Assessments</h3>
-                        <p>List of overdue assessment cycles</p>
-                        <button class="btn btn-primary btn-sm">Generate</button>
-                    </div>
-                    
-                    <div class="report-card">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        <h3>High-Risk Controls</h3>
-                        <p>Summary of high-risk control status</p>
-                        <button class="btn btn-primary btn-sm">Generate</button>
-                    </div>
-                    
-                    <div class="report-card">
-                        <i class="fas fa-building"></i>
-                        <h3>Department Compliance</h3>
-                        <p>Compliance metrics by department</p>
-                        <button class="btn btn-primary btn-sm">Generate</button>
-                    </div>
-                    
-                    <div class="report-card">
-                        <i class="fas fa-history"></i>
-                        <h3>Audit Trail Report</h3>
-                        <p>Complete audit trail of all activities</p>
-                        <button class="btn btn-primary btn-sm">Generate</button>
-                    </div>
-                </div>
-            </div>
+
 
         </main>
     </div>
@@ -387,7 +363,7 @@
                             <label for="controlName">Control Name <span class="required">*</span></label>
                             <input type="text" id="controlName" required placeholder="e.g., Revenue Reconciliation">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="controlOwner">Control Owner <span class="required">*</span></label>
                             <select id="controlOwner" required>
@@ -398,20 +374,23 @@
                             </select>
                         </div>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="controlDescription">Control Description <span class="required">*</span></label>
-                        <textarea id="controlDescription" rows="3" required placeholder="Describe the control purpose and scope"></textarea>
+                        <textarea id="controlDescription" rows="3" required
+                            placeholder="Describe the control purpose and scope"></textarea>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="controlObjective">Control Objective <span class="required">*</span></label>
-                        <textarea id="controlObjective" rows="3" required placeholder="Define the control objective"></textarea>
+                        <textarea id="controlObjective" rows="3" required
+                            placeholder="Define the control objective"></textarea>
                     </div>
-                    
+
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="controlEffectiveness">Control Effectiveness <span class="required">*</span></label>
+                            <label for="controlEffectiveness">Control Effectiveness <span
+                                    class="required">*</span></label>
                             <select id="controlEffectiveness" required>
                                 <option value="">Select Effectiveness</option>
                                 <option value="effective">Effective</option>
@@ -419,7 +398,7 @@
                                 <option value="not-effective">Not Effective</option>
                             </select>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="controlRisk">Control Risk <span class="required">*</span></label>
                             <select id="controlRisk" required>
@@ -429,7 +408,7 @@
                                 <option value="low">Low</option>
                             </select>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="controlFrequency">Control Frequency <span class="required">*</span></label>
                             <select id="controlFrequency" required>
@@ -442,7 +421,7 @@
                             </select>
                         </div>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="controlEvidence">Upload Evidence (Optional)</label>
                         <div class="file-upload">
@@ -454,10 +433,11 @@
                             </label>
                         </div>
                     </div>
-                    
+
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" onclick="closeModal('createControlModal')">Cancel</button>
-                        <button type="submit" class="btn btn-primary">Submit for Certification</button>
+                        <button type="button" class="btn btn-secondary"
+                            onclick="closeModal('createControlModal')">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Submit for Approval</button>
                     </div>
                 </form>
             </div>
@@ -469,12 +449,12 @@
         // Get role from URL parameter
         const urlParams = new URLSearchParams(window.location.search);
         const role = urlParams.get('role') || 'assessor';
-        
+
         // Initialize dashboard based on role
-        window.addEventListener('load', function() {
+        window.addEventListener('load', function () {
             initializeDashboard(role);
         });
-        
+
         function initializeDashboard(role) {
             const roleConfig = {
                 'assessor': {
@@ -498,24 +478,24 @@
                     email: 'david.miller@airline.com'
                 }
             };
-            
+
             const userConfig = roleConfig[role] || roleConfig['assessor'];
             document.getElementById('userName').textContent = userConfig.name;
             document.getElementById('userRole').textContent = userConfig.role;
-            
+
             // Configure sidebar based on role
             configureSidebarForRole(role);
-            
+
             // Update dashboard stats
             updateDashboardForRole(role);
         }
-        
+
         function configureSidebarForRole(role) {
             const controlsNav = document.getElementById('controlsNav');
             const assessmentsNav = document.getElementById('assessmentsNav');
             const certificationsNav = document.getElementById('certificationsNav');
             const auditTrailNav = document.getElementById('auditTrailNav');
-            
+
             if (role === 'dept-head') {
                 controlsNav.style.display = 'none';
                 certificationsNav.style.display = 'none';
@@ -524,7 +504,7 @@
                 assessmentsNav.style.display = 'none';
             }
         }
-        
+
         function updateDashboardForRole(role) {
             const stats = {
                 'assessor': { totalControls: 45, activeControls: 38, pendingAssessments: 7, highRiskControls: 3 },
@@ -532,18 +512,19 @@
                 'dept-head': { totalControls: 65, activeControls: 58, pendingAssessments: 5, highRiskControls: 2 },
                 'auditor': { totalControls: 250, activeControls: 220, pendingAssessments: 30, highRiskControls: 15 }
             };
-            
+
             const roleStats = stats[role] || stats['assessor'];
             document.getElementById('totalControls').textContent = roleStats.totalControls;
             document.getElementById('activeControls').textContent = roleStats.activeControls;
             document.getElementById('pendingAssessments').textContent = roleStats.pendingAssessments;
             document.getElementById('highRiskControls').textContent = roleStats.highRiskControls;
         }
-        
+
         function logout() {
             sessionStorage.clear();
             window.location.href = 'login.html';
         }
     </script>
 </body>
+
 </html>

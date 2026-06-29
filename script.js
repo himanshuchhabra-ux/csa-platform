@@ -30,6 +30,7 @@ function showView(viewId) {
     const titles = {
         'dashboardView': 'Dashboard',
         'controlsView': 'Controls Management',
+        'reviewControlsView': 'Review Controls',
         'assessmentsView': 'Assessments',
         'reportsView': 'Reports'
     };
@@ -37,6 +38,7 @@ function showView(viewId) {
     const subtitles = {
         'dashboardView': 'Overview of your control compliance',
         'controlsView': 'Create and manage controls',
+        'reviewControlsView': 'Manage and review assigned controls',
         'assessmentsView': 'Review and submit assessments',
         'reportsView': 'Generate compliance reports'
     };

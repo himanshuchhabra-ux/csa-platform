@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSA Platform - Certifier Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="dashboardPage" class="page active">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <i class="fas fa-shield-alt"></i>
+                <span>CSA Platform</span>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-view="dashboard">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item" data-view="reviewControls" id="reviewControlsNav">
+                    <i class="fas fa-clipboard-check"></i>
+                    <span>Review Controls</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <div class="user-details">
+                        <div class="user-name" id="userName">John Smith</div>
+                        <div class="user-role" id="userRole">Certifier</div>
+                    </div>
+                </div>
+                <button class="btn-logout" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="top-header">
+                <div class="header-left">
+                    <h1 id="pageTitle">Certifier Dashboard</h1>
+                    <p id="pageSubtitle">Overview of controls pending your review</p>
+                </div>
+                <div class="header-right">
+                    <div class="notification-icon">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">1</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard View -->
+            <div id="dashboardView" class="view active">
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon blue">
+                            <i class="fas fa-clipboard-list"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3 id="totalControls">120</h3>
+                            <p>Total Controls</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon orange">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3 id="pendingReviews">1</h3>
+                            <p>Pending Control Reviews</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controls Pending Review -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Action Required: Pending Control Reviews</h3>
+                        <button class="btn btn-sm btn-primary">View All</button>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Control Name</th>
+                                        <th>Frequency</th>
+                                        <th>Date Submitted</th>
+                                        <th>Risk Level</th>
+                                        <th>Owner</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="table-cell-content">
+                                                <i class="fas fa-shield-alt"></i>
+                                                <span>New Server Hardening</span>
+                                            </div>
+                                        </td>
+                                        <td>Quarterly</td>
+                                        <td>Today, 09:30 AM</td>
+                                        <td><span class="badge badge-high">High</span></td>
+                                        <td>Sarah Johnson</td>
+                                        <td><span class="badge badge-pending">Pending Review</span></td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <a href="review-control.html" class="btn-action-icon" title="Review Control"><i class="fas fa-clipboard-check"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review Controls View -->
+            <div id="reviewControlsView" class="view">
+                <div class="view-header">
+                    <div class="view-filters">
+                        <input type="search" placeholder="Search controls..." class="search-input">
+                        <select class="filter-select">
+                            <option>All Statuses</option>
+                            <option>Pending</option>
+                            <option>Approved</option>
+                            <option>Rejected</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>All Assigned Controls</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Control Name</th>
+                                        <th>Description</th>
+                                        <th>Owner</th>
+                                        <th>Frequency</th>
+                                        <th>Risk</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>New Server Hardening</strong></td>
+                                        <td>Validating hardening standard on newly provisioned servers</td>
+                                        <td>Sarah Johnson</td>
+                                        <td>Quarterly</td>
+                                        <td><span class="badge badge-high">High</span></td>
+                                        <td><span class="badge badge-pending">Pending Review</span></td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <a href="review-control.html" class="btn-action-icon" title="Review"><i class="fas fa-clipboard-check"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Revenue Reconciliation</strong></td>
+                                        <td>Monthly reconciliation of revenue streams</td>
+                                        <td>Sarah Johnson</td>
+                                        <td>Monthly</td>
+                                        <td><span class="badge badge-high">High</span></td>
+                                        <td><span class="badge badge-success">Approved</span></td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <a href="review-control.html" class="btn-action-icon" title="Review Control"><i class="fas fa-clipboard-check"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Access Control Review</strong></td>
+                                        <td>Review of system access controls</td>
+                                        <td>David Miller</td>
+                                        <td>Quarterly</td>
+                                        <td><span class="badge badge-medium">Medium</span></td>
+                                        <td><span class="badge badge-success">Approved</span></td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <a href="review-control.html" class="btn-action-icon" title="Review Control"><i class="fas fa-clipboard-check"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Data Backup Validation</strong></td>
+                                        <td>Validating data backup integrity</td>
+                                        <td>Sarah Johnson</td>
+                                        <td>Quarterly</td>
+                                        <td><span class="badge badge-high">High</span></td>
+                                        <td><span class="badge badge-rejected" style="background: #e74c3c; color: white;">Rejected</span></td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <a href="review-control.html" class="btn-action-icon" title="Review Control"><i class="fas fa-clipboard-check"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Tab switching logic for certifier dashboard
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                if (this.getAttribute('data-view')) {
+                    e.preventDefault();
+                    // Remove active from all nav items
+                    document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // Hide all views
+                    document.querySelectorAll('.view').forEach(view => view.classList.remove('active'));
+                    
+                    // Show selected view
+                    const viewId = this.getAttribute('data-view') + 'View';
+                    document.getElementById(viewId).classList.add('active');
+                }
+            });
+        });
+
+        function logout() {
+            sessionStorage.clear();
+            window.location.href = 'login.html';
+        }
+    </script>
+</body>
+</html>

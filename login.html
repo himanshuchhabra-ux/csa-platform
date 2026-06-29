@@ -83,6 +83,10 @@
                         <span>Sign In</span>
                         <i class="fas fa-arrow-right"></i>
                     </button>
+                    
+                    <div style="margin-top: 15px; text-align: center; font-size: 13px; color: var(--etihad-grey);">
+                        <p><strong>Demo Logins:</strong> Use <span style="color: var(--etihad-gold); font-weight: 500;">ASSESSOR1</span> or <span style="color: var(--etihad-gold); font-weight: 500;">CERTIFIER1</span></p>
+                    </div>
                 </form>
 
                 <!-- Footer -->
@@ -115,12 +119,20 @@
         document.getElementById('loginForm').addEventListener('submit', function (e) {
             e.preventDefault();
 
-            const employeeId = document.getElementById('employeeId').value;
+            const employeeId = document.getElementById('employeeId').value.toUpperCase();
             const password = document.getElementById('password').value;
 
-            // Store user info and redirect
-            sessionStorage.setItem('userEmployeeId', employeeId);
-            window.location.href = 'dashboard.html';
+            if (employeeId === 'ASSESSOR1') {
+                sessionStorage.setItem('userEmployeeId', employeeId);
+                sessionStorage.setItem('userRole', 'assessor');
+                window.location.href = 'dashboard.html';
+            } else if (employeeId === 'CERTIFIER1') {
+                sessionStorage.setItem('userEmployeeId', employeeId);
+                sessionStorage.setItem('userRole', 'certifier');
+                window.location.href = 'dashboard-certifier.html';
+            } else {
+                alert('Invalid Employee ID. Please use ASSESSOR1 or CERTIFIER1.');
+            }
         });
 
         // Add entrance animation
