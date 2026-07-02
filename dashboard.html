@@ -244,7 +244,7 @@
                                     <tr>
                                         <th>Control Name</th>
                                         <th>Description</th>
-                                        <th>Owner</th>
+                                        <th>Certifier</th>
                                         <th>Frequency</th>
                                         <th>Risk</th>
                                         <th>Status</th>
@@ -271,7 +271,7 @@
                                     <tr>
                                         <td><strong>Vendor Payment Approval</strong></td>
                                         <td>Quarterly validation of vendor payments</td>
-                                        <td>Michael Chen</td>
+                                        <td>Sarah Johnson</td>
                                         <td>Quarterly</td>
                                         <td><span class="badge badge-medium">Medium</span></td>
                                         <td><span class="badge badge-active">Active</span></td>
@@ -286,7 +286,7 @@
                                     <tr>
                                         <td><strong>Access Control Review</strong></td>
                                         <td>Review of system access controls</td>
-                                        <td>David Miller</td>
+                                        <td>Sarah Johnson</td>
                                         <td>Quarterly</td>
                                         <td><span class="badge badge-high">High</span></td>
                                         <td><span class="badge badge-inactive">Inactive</span></td>
@@ -332,60 +332,86 @@
                                     <tr>
                                         <th>Control</th>
                                         <th>Cycle</th>
-                                        <th>Assessor</th>
                                         <th>Due Date</th>
                                         <th>Effectiveness</th>
                                         <th>Status</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td><strong>Revenue Reconciliation</strong></td>
                                         <td>Q2 2027</td>
-                                        <td>Sarah Johnson</td>
                                         <td>Jun 30, 2026</td>
                                         <td><span class="badge badge-effective">Effective</span></td>
                                         <td><span class="badge badge-submitted">Submitted</span></td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <a href="#" class="btn-action-icon" title="View" onclick="openModal('viewAssessmentModal'); return false;"><i class="fas fa-eye"></i></a>
+                                            </div>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td><strong>Vendor Payment Approval</strong></td>
                                         <td>Q1 2027</td>
-                                        <td>Michael Chen</td>
                                         <td>Jun 15, 2026</td>
                                         <td><span class="badge badge-effective">Effective</span></td>
                                         <td><span class="badge badge-success">Approved</span></td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <a href="#" class="btn-action-icon" title="View" onclick="openModal('viewAssessmentModal'); return false;"><i class="fas fa-eye"></i></a>
+                                            </div>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td><strong>Access Control Review</strong></td>
                                         <td>Q3 2027</td>
-                                        <td>David Miller</td>
                                         <td>Jun 30, 2026</td>
-                                        <td><span class="badge badge-effective">Effective</span></td>
+                                        <td><span class="badge badge-effective">Partially-Effective</span></td>
                                         <td><span class="badge badge-success">Approved</span></td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <a href="#" class="btn-action-icon" title="View" onclick="openModal('viewAssessmentModal'); return false;"><i class="fas fa-eye"></i></a>
+                                            </div>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td><strong>Data Backup Validation</strong></td>
                                         <td>Q2 2027</td>
-                                        <td>Sarah Johnson</td>
                                         <td>Jun 30, 2026</td>
-                                        <td><span class="badge" style="background: #e74c3c; color: white;">Not Effective</span></td>
+                                        <td><span class="badge badge-effective" >Effective</span></td>
                                         <td><span class="badge badge-rejected" style="background: #e74c3c; color: white;">Rejected</span></td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <a href="#" class="btn-action-icon" title="View" onclick="openModal('viewAssessmentModal'); return false;"><i class="fas fa-eye"></i></a>
+                                                <a href="#" class="btn-action-icon" title="Edit" onclick="openModal('editAssessmentModal'); return false;"><i class="fas fa-edit"></i></a>
+                                            </div>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td><strong>Incident Response Test</strong></td>
                                         <td>Q4 2027</td>
-                                        <td>Michael Chen</td>
-                                        <td>Dec 15, 2027</td>
+                                        <td>July 15, 2026</td>
                                         <td><span class="badge badge-effective" >Effective</span></td>
-                                        <td><span class="badge badge-upcoming">Upcoming</span></td>
+                                        <td><span class="badge badge-upcoming">Pending</span></td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <a href="#" class="btn-action-icon" title="View" onclick="openModal('viewAssessmentModal'); return false;"><i class="fas fa-eye"></i></a>
+                                                <a href="#" class="btn-action-icon" title="Edit" onclick="openModal('editAssessmentModal'); return false;"><i class="fas fa-edit"></i></a>
+                                            </div>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td><strong>Third-party Security Review</strong></td>
-                                        <td>Q1 2028</td>
-                                        <td>Sarah Johnson</td>
-                                        <td>Mar 31, 2028</td>
+                                        <td>Q1 2027</td>
+                                        <td>Mar 31, 2027</td>
                                         <td><span class="badge badge-effective" >Effective</span></td>
                                         <td><span class="badge badge-upcoming">Upcoming</span></td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <a href="#" class="btn-action-icon" title="View" onclick="openModal('viewAssessmentModal'); return false;"><i class="fas fa-eye"></i></a>
+                                            </div>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -490,6 +516,104 @@
                         <button type="button" class="btn btn-secondary"
                             onclick="closeModal('createControlModal')">Cancel</button>
                         <button type="submit" class="btn btn-primary">Submit for Approval</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Assessment Modal -->
+    <div id="viewAssessmentModal" class="modal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2>View Assessment: Data Backup Validation</h2>
+                <button class="modal-close" onclick="closeModal('viewAssessmentModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                    <div>
+                        <h4 style="color: var(--etihad-grey); font-size: 13px; text-transform: uppercase; margin-bottom: 5px;">Control Name</h4>
+                        <p style="font-size: 16px; font-weight: 500;">Data Backup Validation</p>
+                    </div>
+
+                    <div>
+                        <h4 style="color: var(--etihad-grey); font-size: 13px; text-transform: uppercase; margin-bottom: 5px;">Cycle</h4>
+                        <p style="font-size: 15px;">Q2 2027</p>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--etihad-grey); font-size: 13px; text-transform: uppercase; margin-bottom: 5px;">Due Date</h4>
+                        <p style="font-size: 15px;">Jun 30, 2026</p>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--etihad-grey); font-size: 13px; text-transform: uppercase; margin-bottom: 5px;">Effectiveness</h4>
+                        <span class="badge badge-effective">Effective</span>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--etihad-grey); font-size: 13px; text-transform: uppercase; margin-bottom: 5px;">Status</h4>
+                        <span class="badge badge-rejected" style="background: #e74c3c; color: white;">Rejected</span>
+                    </div>
+                </div>
+
+                <div style="border-top: 1px solid var(--etihad-light-grey); padding-top: 20px; margin-top: 20px;">
+                    <h4 style="color: var(--etihad-grey); font-size: 13px; text-transform: uppercase; margin-bottom: 10px;">Rejection Reason</h4>
+                    <div style="background: #fdf3f2; border-left: 4px solid #e74c3c; padding: 15px; border-radius: 4px;">
+                        <p style="color: #c0392b; font-weight: 500; margin-bottom: 5px;"><i class="fas fa-exclamation-circle"></i> Needs more detail in description</p>
+                        <p style="color: #7f8c8d; font-size: 14px;">The evidence provided does not cover all data backup systems.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="closeModal('viewAssessmentModal')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Assessment Modal -->
+    <div id="editAssessmentModal" class="modal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2>Edit Assessment: Data Backup Validation</h2>
+                <button class="modal-close" onclick="closeModal('editAssessmentModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div style="margin-bottom: 25px; background: #fdf3f2; border-left: 4px solid #e74c3c; padding: 15px; border-radius: 4px;">
+                    <p style="color: #c0392b; font-weight: 500; margin-bottom: 5px;"><i class="fas fa-exclamation-circle"></i> Reason for Rejection</p>
+                    <p style="color: #7f8c8d; font-size: 14px;">The evidence provided does not cover all data backup systems.</p>
+                </div>
+
+                <form id="editAssessmentForm" onsubmit="event.preventDefault(); closeModal('editAssessmentModal');">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Effectiveness <span class="required">*</span></label>
+                            <select required>
+                                <option value="effective" selected>Effective</option>
+                                <option value="partially">Partially Effective</option>
+                                <option value="not-effective">Not Effective</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Assessment Details <span class="required">*</span></label>
+                        <textarea rows="3" required>Data backups have been validated for the primary servers. We are attaching the logs.</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Upload Evidence (Optional)</label>
+                        <div class="file-upload">
+                            <input type="file" multiple>
+                            <label>
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <span>Click to upload or drag and drop</span>
+                                <small>PDF, DOC, XLS, JPG, PNG (Max 10MB)</small>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" onclick="closeModal('editAssessmentModal')">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save and Resubmit</button>
                     </div>
                 </form>
             </div>
