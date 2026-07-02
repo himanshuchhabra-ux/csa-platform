@@ -99,10 +99,30 @@
                         </div>
                     </div>
 
+                    <div class="stat-card">
+                        <div class="stat-icon orange">
+                            <i class="fas fa-thumbs-up"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3 id="approvedControls">35</h3>
+                            <p>Approved Controls</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon red">
+                            <i class="fas fa-thumbs-down"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3 id="rejectedControls">3</h3>
+                            <p>Rejected Controls</p>
+                        </div>
+                    </div>
+
                 </div>
 
                 <!-- Charts and Recent Activity -->
-                <div style="margin-bottom: 30px;">
+                <!-- <div style="margin-bottom: 30px;">
                     <div class="card">
                         <div class="card-header">
                             <h3>Recent Activities</h3>
@@ -144,10 +164,10 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- Upcoming Assessments -->
-                <div class="card">
+                <!-- <div class="card">
                     <div class="card-header">
                         <h3>Upcoming Assessments</h3>
                         <button class="btn btn-sm btn-primary">View All</button>
@@ -196,7 +216,7 @@
                             </table>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
 
             <!-- Controls View -->
@@ -295,6 +315,7 @@
                         <input type="search" placeholder="Search assessments..." class="search-input">
                         <select class="filter-select">
                             <option>All Statuses</option>
+                            <option>Upcoming</option>
                             <option>Pending</option>
                             <option>Submitted</option>
                             <option>Approved</option>
@@ -322,7 +343,7 @@
                                         <td><strong>Revenue Reconciliation</strong></td>
                                         <td>Q2 2027</td>
                                         <td>Sarah Johnson</td>
-                                        <td>Jun 30, 2027</td>
+                                        <td>Jun 30, 2026</td>
                                         <td><span class="badge badge-effective">Effective</span></td>
                                         <td><span class="badge badge-submitted">Submitted</span></td>
                                     </tr>
@@ -330,9 +351,41 @@
                                         <td><strong>Vendor Payment Approval</strong></td>
                                         <td>Q1 2027</td>
                                         <td>Michael Chen</td>
-                                        <td>Jun 15, 2027</td>
+                                        <td>Jun 15, 2026</td>
                                         <td><span class="badge badge-effective">Effective</span></td>
-                                        <td><span class="badge badge-certified">Certified</span></td>
+                                        <td><span class="badge badge-success">Approved</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Access Control Review</strong></td>
+                                        <td>Q3 2027</td>
+                                        <td>David Miller</td>
+                                        <td>Jun 30, 2026</td>
+                                        <td><span class="badge badge-effective">Effective</span></td>
+                                        <td><span class="badge badge-success">Approved</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Data Backup Validation</strong></td>
+                                        <td>Q2 2027</td>
+                                        <td>Sarah Johnson</td>
+                                        <td>Jun 30, 2026</td>
+                                        <td><span class="badge" style="background: #e74c3c; color: white;">Not Effective</span></td>
+                                        <td><span class="badge badge-rejected" style="background: #e74c3c; color: white;">Rejected</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Incident Response Test</strong></td>
+                                        <td>Q4 2027</td>
+                                        <td>Michael Chen</td>
+                                        <td>Dec 15, 2027</td>
+                                        <td><span class="badge badge-effective" >Effective</span></td>
+                                        <td><span class="badge badge-upcoming">Upcoming</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Third-party Security Review</strong></td>
+                                        <td>Q1 2028</td>
+                                        <td>Sarah Johnson</td>
+                                        <td>Mar 31, 2028</td>
+                                        <td><span class="badge badge-effective" >Effective</span></td>
+                                        <td><span class="badge badge-upcoming">Upcoming</span></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -506,17 +559,30 @@
 
         function updateDashboardForRole(role) {
             const stats = {
-                'assessor': { totalControls: 45, activeControls: 38, pendingAssessments: 7, highRiskControls: 3 },
-                'certifier': { totalControls: 120, activeControls: 105, pendingAssessments: 15, highRiskControls: 8 },
-                'dept-head': { totalControls: 65, activeControls: 58, pendingAssessments: 5, highRiskControls: 2 },
-                'auditor': { totalControls: 250, activeControls: 220, pendingAssessments: 30, highRiskControls: 15 }
+                'assessor': { totalControls: 45, activeControls: 38, pendingAssessments: 7, highRiskControls: 3, approvedControls: 35, rejectedControls: 3 },
+                'certifier': { totalControls: 120, activeControls: 105, pendingAssessments: 15, highRiskControls: 8, approvedControls: 90, rejectedControls: 5 },
+                'dept-head': { totalControls: 65, activeControls: 58, pendingAssessments: 5, highRiskControls: 2, approvedControls: 55, rejectedControls: 2 },
+                'auditor': { totalControls: 250, activeControls: 220, pendingAssessments: 30, highRiskControls: 15, approvedControls: 200, rejectedControls: 10 }
             };
 
             const roleStats = stats[role] || stats['assessor'];
-            document.getElementById('totalControls').textContent = roleStats.totalControls;
-            document.getElementById('activeControls').textContent = roleStats.activeControls;
-            document.getElementById('pendingAssessments').textContent = roleStats.pendingAssessments;
-            document.getElementById('highRiskControls').textContent = roleStats.highRiskControls;
+            const totalControlsEl = document.getElementById('totalControls');
+            if (totalControlsEl) totalControlsEl.textContent = roleStats.totalControls;
+
+            const activeControlsEl = document.getElementById('activeControls');
+            if (activeControlsEl) activeControlsEl.textContent = roleStats.activeControls;
+
+            const pendingAssessmentsEl = document.getElementById('pendingAssessments');
+            if (pendingAssessmentsEl) pendingAssessmentsEl.textContent = roleStats.pendingAssessments;
+            
+            const highRiskControlsEl = document.getElementById('highRiskControls');
+            if (highRiskControlsEl) highRiskControlsEl.textContent = roleStats.highRiskControls;
+
+            const approvedControlsEl = document.getElementById('approvedControls');
+            if (approvedControlsEl) approvedControlsEl.textContent = roleStats.approvedControls;
+
+            const rejectedControlsEl = document.getElementById('rejectedControls');
+            if (rejectedControlsEl) rejectedControlsEl.textContent = roleStats.rejectedControls;
         }
 
         function logout() {

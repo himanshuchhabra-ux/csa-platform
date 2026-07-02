@@ -730,6 +730,10 @@ body {
     background: linear-gradient(135deg, #8b6f47 0%, #6d5638 100%);
 }
 
+.stat-icon.purple {
+    background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+}
+
 .stat-details h3 {
     font-size: 36px;
     font-weight: 300;
